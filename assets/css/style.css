@@ -1,3 +1,10 @@
 .navbar {
     height: 100px;
 }
+button {
+    padding: 5px;
+    margin: 5px;
+}
+.item {
+    float: left;
+}
