@@ -1,6 +1,10 @@
-$("button").on("click", function(){
 
-    $("#gifs-appear-here").html("");
+
+
+
+$(".showBtn").on("click", function(){
+
+    $("#gifs-appear-here").html(" whats up ");
 
     var show = $(this).attr("data-show");
 
@@ -44,7 +48,17 @@ $("button").on("click", function(){
     
                   // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
                 $("#gifs-appear-here").prepend(gifDiv);
-                }
-              }
-            });
-        });
+            }
+        }
+    });
+});
+
+
+
+$("#newButton").on("click", function(){
+    var newShow = $("#input").val();
+    console.log(newShow);
+    var newButton = '<button type="button" class="btn showBtn btn-info" data-show="'+newShow+'">'+newShow+'</button>';
+    $("#buttons").append(newButton);
+    $("#input").val("");
+});
