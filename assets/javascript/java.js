@@ -17,12 +17,23 @@ $("#newButton").on("click", function(){
     $("#input").val("");
 });
 
+$(document).on("click", ".giffy", function(event){
+    
+    console.log("giffy got clicked");
+    var state = $(this).attr("data-state");
+    if (state==="still"){
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
 
+});
 
-$(".showBtn").on("click", function(){
+$(document).on("click", ".showBtn", function(event){
+    
     console.log("click");
-
-    $("#gifs-appear-here").html(" whats up ");
 
     var show = $(this).attr("data-show");
 
@@ -36,6 +47,8 @@ $(".showBtn").on("click", function(){
             // After the data comes back from the API
         .then(function(event) {
 
+            $("#gifs-appear-here").html("");
+
             //event.preventDefault();
               // Storing an array of results in the results variable
             var results = event.data;
@@ -47,7 +60,7 @@ $(".showBtn").on("click", function(){
                 // Only taking action if the photo has an appropriate rating
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
                   // Creating a div with the class "item"
-                var gifDiv = $("<div class='item col-lg-4'>");
+                var gifDiv = $("<div class='item float-left m-2'>");
     
                   // Storing the result item's rating
                 var rating = results[i].rating;
@@ -60,7 +73,11 @@ $(".showBtn").on("click", function(){
     
                   // Giving the image tag an src attribute of a proprty pulled off the
                   // result item
-                showImage.attr("src", results[i].images.fixed_height.url);
+                showImage.attr("class", "giffy");
+                showImage.attr("data-state", "still");
+                showImage.attr("data-animate", results[i].images.fixed_height.url);
+                showImage.attr("data-still", results[i].images.fixed_height_still.url);
+                showImage.attr("src", results[i].images.fixed_height_still.url);
     
                   // Appending the paragraph and personImage we created to the "gifDiv" div we created
                 gifDiv.append(p);
