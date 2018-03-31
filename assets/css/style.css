@@ -7,4 +7,8 @@ button {
 }
 .item {
     float: left;
+    
+}
+body {
+    background-color: aliceblue;
 }

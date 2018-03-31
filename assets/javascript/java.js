@@ -1,8 +1,26 @@
+var dataShows = ["I Love Lucy", "The Office", "Parks and Recreation", "Rick and Morty"];
 
+function makeButtons(){
+    $("#buttons").html("");
+    for (i = 0; i < dataShows.length; i++){
+    var newButton = '<button type="button" class="btn showBtn btn-info" data-show="'+dataShows[i]+'">'+dataShows[i]+'</button>';
+    $("#buttons").append(newButton);
+    }
+};
+makeButtons();
+
+$("#newButton").on("click", function(){
+    var newShow = $("#input").val();
+    console.log(newShow);
+    dataShows.push(newShow);
+    makeButtons();
+    $("#input").val("");
+});
 
 
 
 $(".showBtn").on("click", function(){
+    console.log("click");
 
     $("#gifs-appear-here").html(" whats up ");
 
@@ -16,9 +34,11 @@ $(".showBtn").on("click", function(){
         method: "GET"
         })
             // After the data comes back from the API
-        .then(function(response) {
+        .then(function(event) {
+
+            //event.preventDefault();
               // Storing an array of results in the results variable
-            var results = response.data;
+            var results = event.data;
             console.log(results);
     
               // Looping over every result item
@@ -55,10 +75,3 @@ $(".showBtn").on("click", function(){
 
 
 
-$("#newButton").on("click", function(){
-    var newShow = $("#input").val();
-    console.log(newShow);
-    var newButton = '<button type="button" class="btn showBtn btn-info" data-show="'+newShow+'">'+newShow+'</button>';
-    $("#buttons").append(newButton);
-    $("#input").val("");
-});
