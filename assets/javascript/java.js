@@ -1,4 +1,4 @@
-var dataShows = ["I Love Lucy", "The Office", "Parks and Recreation", "Rick and Morty"];
+var dataShows = ["I Love Lucy", "The Office", "Parks and Recreation", "Rick and Morty", "Black Mirror", "Scandal"];
 
 function makeButtons(){
     $("#buttons").html("");

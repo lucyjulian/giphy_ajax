@@ -1,9 +1,12 @@
-.navbar {
+/* .navbar {
     height: 100px;
-}
+} */
 button {
-    padding: 5px;
+   
     margin: 5px;
+}
+#newButton {
+    margin-left: 10px;
 }
 .item {
     float: left;
@@ -11,4 +14,13 @@ button {
 }
 body {
     background-color: aliceblue;
+}
+h1 {
+    font-weight: bold;
+    margin-left: 10px;
+}
+input {
+    margin: 10px;
+    width: 200px;
+    
 }
